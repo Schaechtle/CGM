@@ -141,5 +141,5 @@ for i in range(200):
 
 pl.plot([i for i in range(X.shape[0])],X,linewidth=2.0,c="blue")
 fig.savefig('/home/ulli/Dropbox/cgm/CGM_patient_'+str(patient_number)+'_mh_'+steps+'.svg', dpi=fig.dpi)
-#fig.savefig('/home/ulli/Dropbox/cgm/CGM_patient_'+str(patient_number)+'_mh_'+steps+'.png', dpi=fig.dpi)
+fig.savefig('/home/ulli/Dropbox/cgm/CGM_patient_'+str(patient_number)+'_mh_'+steps+'.png', dpi=fig.dpi)
 
