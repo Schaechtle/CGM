@@ -27,7 +27,7 @@ sns.set(font_scale=3)
 
 
 patient_number = 5
-steps = 1
+steps = "1"
 
 for i in range(1, len(sys.argv)):
     if str(sys.argv[i]) == "-s":  # structure posterior
