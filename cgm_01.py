@@ -139,7 +139,7 @@ for i in range(200):
     yp = [y_temp for (x,y_temp) in sorted(zip(xpost,ypost))]
     pl.plot(sorted(xpost),yp,c="red",alpha=0.1,linewidth=2)
 
-pl.plot(X)
+pl.plot([i for i in range(X.shape[0])],X,linewidth=2.0)
 fig.savefig('/home/ulli/Dropbox/cgm/CGM_patient_'+str(patient_number)+'_mh_'+steps+'.svg', dpi=fig.dpi)
-fig.savefig('/home/ulli/Dropbox/cgm/CGM_patient_'+str(patient_number)+'_mh_'+steps+'.png', dpi=fig.dpi)
+#fig.savefig('/home/ulli/Dropbox/cgm/CGM_patient_'+str(patient_number)+'_mh_'+steps+'.png', dpi=fig.dpi)
 
