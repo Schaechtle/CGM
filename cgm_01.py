@@ -131,7 +131,7 @@ print("Structure after Inference")
 print(ripl.sample('(interp cov )'))
 
 fig = pl.figure(figsize=(figlength,figheigth), dpi=200)
-pl.plot(X)
+
 for i in range(200):
     xpost= np.random.uniform(0,300,100)
     sampleString=genSamples(xpost)
@@ -139,7 +139,7 @@ for i in range(200):
     yp = [y_temp for (x,y_temp) in sorted(zip(xpost,ypost))]
     pl.plot(sorted(xpost),yp,c="red",alpha=0.1,linewidth=2)
 
-
-fig.savefig('/home/ulli/Dropbox/cgm/CGM_patient_'+str(patient_number)+'_mh_'+experiment+'.svg', dpi=fig.dpi)
-fig.savefig('/home/ulli/Dropbox/cgm/CGM_patient_'+str(patient_number)+'.png', dpi=fig.dpi)
+pl.plot(X)
+fig.savefig('/home/ulli/Dropbox/cgm/CGM_patient_'+str(patient_number)+'_mh_'+steps+'.svg', dpi=fig.dpi)
+fig.savefig('/home/ulli/Dropbox/cgm/CGM_patient_'+str(patient_number)+'_mh_'+steps+'.png', dpi=fig.dpi)
 
