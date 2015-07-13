@@ -128,8 +128,8 @@ for i in range(number):
 
 simplex+=" )"
 #print(' (tag (quote grammar) 0 (subset (list lin1 per1 se1 se2 rq) '+simplex + ' ))')
-ripl.assume('s',' (tag (quote grammar) 0 (subset (list lin1 per1 se1 se2 rq) '+simplex + ' ))')
-ripl.assume('cov','(tag (quote hyper) 2 (cov_compo s))')
+ripl.assume('s',' (tag (quote hyper) 0 (subset (list lin1 per1 se1 se2 rq) '+simplex + ' ))')
+ripl.assume('cov','(tag (quote hyper) 1 (cov_compo s))')
 
 ripl.assume('gp',"""(tag (quote model) 0
                     (make_gp_part_der zero cov))""")
