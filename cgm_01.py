@@ -5,6 +5,7 @@ import numpy as np
 import pandas as pd
 import scipy.io as scio
 import sys
+import itertools
 sys.path.append('../VentIPyN/Experiments/')
 from models.covFunctions import *
 
@@ -69,7 +70,7 @@ ripl = shortcuts.make_lite_church_prime_ripl()
 
 ripl.bind_foreign_sp("make_gp_part_der",gp_der.makeGPSP)
 ripl.bind_foreign_sp("covfunc_interpreter",typed_nr(GrammarInterpreter(), [t.AnyType()], t.AnyType())) 
-ripl.bind_foreign_sp("subset",typed_nr(Subset(), [t.ListType(),t.IntegerType()], t.ListType()))   
+ripl.bind_foreign_sp("subset",typed_nr(Subset(), [t.ListType(),t.SimplexType()], t.ListType()))
 
 ripl.assume('make_const_func', VentureFunction(makeConstFunc, [t.NumberType()], constantType))
 ripl.assume('zero', "(apply_function make_const_func 0)")
@@ -115,8 +116,19 @@ ripl.assume('cov_compo',"""
         )
 ))
 """)
-ripl.assume('n_in','(tag (quote hyper) 0 (uniform_discrete 1 5))')
-ripl.assume('s','(tag (quote hyper) 1 (subset (list lin1 per1 se1 se2 rq) 2))')
+number = 5
+total_perms =0
+perms = []
+for i in range(number):
+    perms.append((len(list(itertools.permutations([j for j in range(i+1)])))))
+    total_perms+=perms[i]
+simplex = "( simplex  "
+for i in range(number):
+    simplex+=str(float(perms[i])/total_perms) + " "
+
+simplex+=" )"
+#print(' (tag (quote grammar) 0 (subset (list lin1 per1 se1 se2 rq) '+simplex + ' ))')
+ripl.assume('s',' (tag (quote grammar) 0 (subset (list lin1 per1 se1 se2 rq) '+simplex + ' ))')
 ripl.assume('cov','(tag (quote hyper) 2 (cov_compo s))')
 
 ripl.assume('gp',"""(tag (quote model) 0
