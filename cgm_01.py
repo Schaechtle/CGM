@@ -90,9 +90,9 @@ ripl.assume('l',' (tag (quote parameter) 4 (log (uniform_continuous  0 5)))')
 
 ripl.assume('l1',' (tag (quote parameter) 5 (log (uniform_continuous  0 5)))')
 ripl.assume('l2',' (tag (quote parameter) 6 (log (uniform_continuous  0 5)))')
-ripl.assume('sf_rq','(tag (quote hypers) 7 (log (uniform_continuous 0 5)))')
-ripl.assume('l_rq','(tag (quote hypers) 8 (log (uniform_continuous 0 5)))')
-ripl.assume('alpha','(tag (quote hypers)9 (log (uniform_continuous 0 5)))')
+ripl.assume('sf_rq','(tag (quote parameter) 7 (log (uniform_continuous 0 5)))')
+ripl.assume('l_rq','(tag (quote parameter) 8 (log (uniform_continuous 0 5)))')
+ripl.assume('alpha','(tag (quote parameter)9 (log (uniform_continuous 0 5)))')
 ripl.assume('sf',' (tag (quote parameter) 10 (log (uniform_continuous  0 5)))')
 
 ripl.assume('lin1', "(apply_function make_linear a   )")
@@ -115,7 +115,7 @@ ripl.assume('cov_compo',"""
         )
 ))
 """)
-ripl.assume('n_in','(tag (quote hyper) 0 (uniform_discrete 1 8))')
+ripl.assume('n_in','(tag (quote hyper) 0 (uniform_discrete 1 5))')
 ripl.assume('s','(tag (quote hyper) 1 (subset (list lin1 per1 se1 se2 rq) 2))')
 ripl.assume('cov','(tag (quote hyper) 2 (cov_compo s))')
 
