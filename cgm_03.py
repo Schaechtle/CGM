@@ -58,7 +58,7 @@ def genSamples(x,ripl,gp_str='(gp '):
     #print(sampleString)
     return sampleString
 def run_cgm_experiment(patient_number,exp_index):
-    if not os.path.isfile('/home/ulli/Dropbox/cgm/patient_structure_'+patient_number+'/',ripl.sample('(interp cov )')+'_'+str(exp_index)):
+    if not glob.glob('/home/ulli/Dropbox/cgm/patient_structure_'+patient_number+'/*_'+str(exp_index)):
         mat_contents =scio.loadmat("../data/glucose"+patient_number)
         X = mat_contents['Glucose']
 
