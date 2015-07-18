@@ -62,9 +62,6 @@ def run_cgm_experiment(patient_number,exp_index):
         X = X[1:]
         X_extra = X[-6:]
         X = X[:-6]
-            os.makedirs(path + 'structure_'+patient_number+'/')
-        if not os.path.exists(path + 'residuals/'):
-            os.makedirs(path + 'residuals/')
 
 
         ripl = shortcuts.make_lite_church_prime_ripl()
