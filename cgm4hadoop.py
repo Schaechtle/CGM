@@ -32,8 +32,8 @@ def touch(fname,name):
 
 
 
-number_predictive_samples = 10
-steps = "4"
+number_predictive_samples = 200
+steps = "4000"
 
 
 
