@@ -22,14 +22,18 @@ from subset import Subset
 from venture.lite.builtin import typed_nr
 
 import os
-def touch(path,name):
-    with open(path+name,'a'):
-        os.utime(path, None)
+
+def touch(fname,name):
+    if os.path.exists(fname+name):
+        os.utime(fname+name, None)
+    else:
+        open(fname+name, 'a').close()
 
 
 
-number_predictive_samples = 200
-steps = "4000"
+
+number_predictive_samples = 10
+steps = "4"
 
 
 
