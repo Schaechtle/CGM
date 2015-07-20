@@ -183,13 +183,13 @@ def run_cgm_experiment(patient_number):
     pl.ylabel('mg/dL',fontsize=font_size)
     pl.xticks(fontsize=font_size)
     pl.yticks(fontsize=font_size)
-    pl.xlim(np.min(X),np.max(X))
     ax = pl.gca()
+    ax.set_xlim([np.min(X), np.max(X)+6])
     ticks = ax.get_xticks()
     time_stamps[0]=''
     ax.set_xticklabels([time_stamps[int(i)] for i in ticks[:-1]])
 
-    fig.savefig(path+'posterior_samples_patient_'+patient_number+'_'+str(number_predictive_samples)+'_'+str(number_curves)+'a_'+str(alpha_value)+'.png', dpi=fig.dpi)
+    fig.savefig(path+'posterior_samples_patient_'+patient_number+'_'+str(number_predictive_samples)+'_'+str(number_curves)+'a_'+str(alpha_value)+'.png', dpi=fig.dpi,bbox_inches='tight')
 
 run_cgm_experiment(patient)
 
