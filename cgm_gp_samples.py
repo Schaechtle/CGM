@@ -55,13 +55,22 @@ for i in range(1, len(sys.argv)):
         figlength = int(sys.argv[i + 1])
     if str(sys.argv[i]) == "--fh":  # number predictions
         figheigth = int(sys.argv[i + 1])
+    if str(sys.argv[i]) == "--fs":  # number predictions
+        font_size = float(sys.argv[i + 1])
 
 
 
 
 #fig = plt.figure(figsize=(figlength,figheigth), dpi=200)
 #pl.plot(X)
-
+def get_time_stamps(patient):
+    with open ('/home/ulli/data/CGM_data-'+patient+'.csv', "r") as myfile:
+        data=myfile.readlines()
+    data = data[1:]
+    time_stamps = []
+    for line in data:
+        time_stamps.append(line.split(',')[0])
+    return list(reversed(time_stamps))
 
 def array(xs):
   return t.VentureArrayUnboxed(np.array(xs),  t.NumberType())
@@ -165,7 +174,19 @@ def run_cgm_experiment(patient_number):
     #pl.locator_params(nbins=4)
     #plt.axis((-2,2,-1,3))
     #pl.plot(X,color='blue')
-    pl.scatter(X,color='black',marker='x',s=50,edgecolor='black',linewidth='1.5')
+    pl.scatter(range(X.shape[0]),X,color='black',marker='x',s=50,edgecolor='black',linewidth='1.5')
+    non_zero_index = np.nonzero(X)
+    X = X[non_zero_index]
+    time_stamps = get_time_stamps(patient)
+    time_stamps=[time_stamps[i] for i in non_zero_index[0]]
+    pl.xlabel('Time',fontsize=font_size)
+    pl.ylabel('mg/dL',fontsize=font_size)
+    pl.xticks(fontsize=font_size)
+    pl.yticks(fontsize=font_size)
+    ticks = ax.get_xticks()
+    time_stamps[0]=''
+    ax.set_xticklabels([time_stamps[int(i)] for i in ticks[:-1]])
+
     fig.savefig('posterior_samples_patient_'+patient_number+'_'+number_predictive_samples+'_'+number_curves+'a_'+alpha_value+'.png', dpi=fig.dpi)
 
 run_cgm_experiment(patient)
