@@ -54,7 +54,7 @@ for i in range(1, len(sys.argv)):
     if str(sys.argv[i]) == "--fl":  # number predictions
         figlength = int(sys.argv[i + 1])
     if str(sys.argv[i]) == "--fh":  # number predictions
-        figheight = int(sys.argv[i + 1])
+        figheigth = int(sys.argv[i + 1])
 
 
 
