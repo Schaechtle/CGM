@@ -31,6 +31,8 @@ import scipy.io as scio
 import pylab as pl
 
 
+import matplotlib.pyplot as plt
+
 
 number_predictive_samples = 200
 number_curves = 100
