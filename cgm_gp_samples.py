@@ -189,7 +189,7 @@ def run_cgm_experiment(patient_number):
     time_stamps[0]=''
     ax.set_xticklabels([time_stamps[int(i)] for i in ticks[:-1]])
 
-    fig.savefig('posterior_samples_patient_'+patient_number+'_'+number_predictive_samples+'_'+number_curves+'a_'+alpha_value+'.png', dpi=fig.dpi)
+    fig.savefig('posterior_samples_patient_'+patient_number+'_'+str(number_predictive_samples)+'_'+str(number_curves)+'a_'+str(alpha_value)+'.png', dpi=fig.dpi)
 
 run_cgm_experiment(patient)
 
