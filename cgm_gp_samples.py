@@ -25,6 +25,10 @@ import os
 def touch(path,name):
     with open(path+name,'a'):
         os.utime(path, None)
+import seaborn as sns
+import pandas as pd
+import scipy.io as scio
+import pylab as pl
 
 
 
@@ -143,7 +147,7 @@ def run_cgm_experiment(patient_number):
     makeObservations([i for i in range(X.shape[0])],X,ripl)
     ripl.infer("(repeat "+steps+" (do (mh (quote hyper) one 1) (mh (quote parameter) one 5)))")
     # prediction
-  
+
     fig = plt.figure(figsize=(figlength,figheigth), dpi=200)
     for i in range(number_curves):
         xpost= np.random.uniform(np.min(X),np.max(X),200)
