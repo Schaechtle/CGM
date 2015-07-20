@@ -51,6 +51,10 @@ for i in range(1, len(sys.argv)):
         number_curves = int(sys.argv[i + 1])
     if str(sys.argv[i]) == "-a":  # number predictions
         alpha_value = float(sys.argv[i + 1])
+    if str(sys.argv[i]) == "--fl":  # number predictions
+        figlength = int(sys.argv[i + 1])
+    if str(sys.argv[i]) == "--fh":  # number predictions
+        figheight = int(sys.argv[i + 1])
 
 
 
