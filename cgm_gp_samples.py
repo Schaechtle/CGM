@@ -39,6 +39,7 @@ number_curves = 100
 steps = "4000"
 path = '/home/ulli/Dropbox/cgm/'
 alpha_value = 0.008
+exp_run=''
 
 for i in range(1, len(sys.argv)):
     if str(sys.argv[i]) == "-s":  # steps mh
@@ -57,6 +58,8 @@ for i in range(1, len(sys.argv)):
         figheigth = int(sys.argv[i + 1])
     if str(sys.argv[i]) == "--fs":  # number predictions
         font_size = float(sys.argv[i + 1])
+    if str(sys.argv[i]) == "-e":  # path
+        exp_run = str(sys.argv[i + 1])
 
 
 
@@ -190,7 +193,7 @@ def run_cgm_experiment(patient_number):
     time_stamps[0]=''
     ax.set_xticklabels([time_stamps[int(i)] for i in ticks[:-1]])
 
-    fig.savefig(path+'posterior_samples_patient_'+patient_number+'_'+str(number_predictive_samples)+'_'+str(number_curves)+'a_'+str(alpha_value)+'.png', dpi=fig.dpi,bbox_inches='tight')
+    fig.savefig(path+'posterior_samples_patient_'+patient_number+'_'+str(number_predictive_samples)+'_'+str(number_curves)+'a_'+str(alpha_value)+'_'+exp_run+'.png', dpi=fig.dpi,bbox_inches='tight')
 
 run_cgm_experiment(patient)
 
