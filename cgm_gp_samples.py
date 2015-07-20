@@ -185,7 +185,7 @@ def run_cgm_experiment(patient_number):
     pl.yticks(fontsize=font_size)
     ax = pl.gca()
     ax.set_xlim([0, X.shape[0]+5])
-    ax.set_ylim([np.min(X),np.max(X)])
+    ax.set_ylim([np.min(X)-10,np.max(X)+10])
     ticks = ax.get_xticks()
     time_stamps[0]=''
     ax.set_xticklabels([time_stamps[int(i)] for i in ticks[:-1]])
