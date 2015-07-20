@@ -183,6 +183,7 @@ def run_cgm_experiment(patient_number):
     pl.ylabel('mg/dL',fontsize=font_size)
     pl.xticks(fontsize=font_size)
     pl.yticks(fontsize=font_size)
+    ax = pl.gca()
     ticks = ax.get_xticks()
     time_stamps[0]=''
     ax.set_xticklabels([time_stamps[int(i)] for i in ticks[:-1]])
