@@ -165,7 +165,7 @@ def run_cgm_experiment(patient_number):
 
     fig = plt.figure(figsize=(figlength,figheigth), dpi=200)
     for i in range(number_curves):
-        xpost= np.random.uniform(np.min(X),np.max(X),200)
+        xpost= np.random.uniform(0,X.shape[0]+5,200)
         sampleString=genSamples(xpost,ripl)
         ypost = ripl.sample(sampleString)
         yp = [y_temp for (x_temp,y_temp) in sorted(zip(xpost,ypost))]
@@ -184,7 +184,7 @@ def run_cgm_experiment(patient_number):
     pl.xticks(fontsize=font_size)
     pl.yticks(fontsize=font_size)
     ax = pl.gca()
-    ax.set_xlim([np.min(X), np.max(X)+6])
+    ax.set_xlim([0, X.shape[0]+5])
     ticks = ax.get_xticks()
     time_stamps[0]=''
     ax.set_xticklabels([time_stamps[int(i)] for i in ticks[:-1]])
