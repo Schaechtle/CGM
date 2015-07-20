@@ -174,7 +174,7 @@ def run_cgm_experiment(patient_number):
     #pl.locator_params(nbins=4)
     #plt.axis((-2,2,-1,3))
     #pl.plot(X,color='blue')
-    pl.scatter(range(X.shape[0]),X,color='black',marker='x',s=50,edgecolor='black',linewidth='1.5')
+    pl.scatter(range(X.shape[0]),X,color='black',marker='x',s=50,edgecolor='blue',linewidth='1.5')
     non_zero_index = np.nonzero(X)
     X = X[non_zero_index]
     time_stamps = get_time_stamps(patient)
